@@ -115,6 +115,6 @@ public class SeatRequestServiceImpl implements SeatRequestService {
 		//List<SeatRequest> findAllByRequestStatus = seatRequestRepo.findAllByRequestStatus(0);
 	}
 	
-	
 
 }
+

@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onerivet.deskbook.models.entity.Employee;
-import com.onerivet.deskbook.models.entity.SeatRequest;
 import com.onerivet.deskbook.models.payload.SeatInformationViewDto;
 import com.onerivet.deskbook.models.response.GenericResponse;
-import com.onerivet.deskbook.services.EmployeeService;
 import com.onerivet.deskbook.services.SeatRequestService;
 import com.onerivet.deskbook.services.impl.EmailServiceImpl;
 
@@ -28,9 +26,10 @@ public class SeatRequestController {
 
 	@Autowired
 	private SeatRequestService seatRequestService;
+	
 
-//	@Autowired
-//	private EmailServiceImpl emailServiceImpl;
+	@Autowired
+	private EmailServiceImpl emailServiceImpl;
 
 	@GetMapping("/seat/{id}")
 	public GenericResponse<SeatInformationViewDto> seatInformation(@PathVariable("id") int id, Principal principal)
@@ -46,4 +45,6 @@ public class SeatRequestController {
 				GenericResponse<String>genericResponse=new GenericResponse<>(this.seatRequestService.seatRequestAccept(id,modifiedBy,principal.getName()),null);
 				return genericResponse ;
 	}
+	
+	
 }

@@ -19,4 +19,6 @@ public interface SeatRequestRepo extends JpaRepository<SeatRequest, Integer> {
 			SeatNumber seatNumber);
 	
 	public List<SeatRequest> findAllByRequestStatus(int requestStatus);
+	
+	
 }
